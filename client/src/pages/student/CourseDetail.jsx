@@ -29,7 +29,7 @@ const CourseDetail = () => {
   console.log(purchased);
 
   const handleContinueCourse = () => {
-    if(purchased){
+    if (purchased) {
       navigate(`/course-progress/${courseId}`)
     }
   }
@@ -64,8 +64,8 @@ const CourseDetail = () => {
           />
           <Card>
             <CardHeader>
-              <CardTitle>Course Content</CardTitle>
-              <CardDescription>4 lectures</CardDescription>
+              <CardTitle>{course.courseTitle}</CardTitle>
+              <CardDescription>{course.lectures.length} Lectures</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               {course.lectures.map((lecture, idx) => (
@@ -86,13 +86,13 @@ const CourseDetail = () => {
                 <ReactPlayer
                   width="100%"
                   height={"100%"}
-                  url={course.lectures[0].videoUrl}
+                  url={course.courseThumbnail}
                   controls={true}
                 />
               </div>
-              <h1>Lecture title</h1>
+              <h1>{course.courseTitle}</h1>
               <Separator className="my-2" />
-              <h1 className="text-lg md:text-xl font-semibold">Course Price</h1>
+              <h1 className="text-lg md:text-xl font-semibold">₹ {course.coursePrice}</h1>
             </CardContent>
             <CardFooter className="flex justify-center p-4">
               {purchased ? (

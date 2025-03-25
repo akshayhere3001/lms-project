@@ -98,7 +98,7 @@ const Login = () => {
             <CardHeader>
               <CardTitle>Signup</CardTitle>
               <CardDescription>
-                Create a new account and click signup when you're done.
+                Create a new account, Join Skill Bridge – Learn, Grow, Succeed!!!
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
@@ -158,7 +158,7 @@ const Login = () => {
             <CardHeader>
               <CardTitle>Login</CardTitle>
               <CardDescription>
-                Login your password here. After signup, you'll be logged in.
+                Welcome back! Bridge the gap, master new skills.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">

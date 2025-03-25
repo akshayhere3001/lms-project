@@ -19,10 +19,10 @@ const HeroSection = () => {
     <div className="relative bg-gradient-to-r from-yellow-200 to-orange-300 py-24 px-4 text-center">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-orange-800 text-4xl font-bold mb-4">
-          Unlock Your Potential with Engaging Courses
+          📚 Empower Learning with Ease – Your Ultimate LMS Solution!
         </h1>
         <p className="text-gray-600 mb-8">
-          Dive into a world of knowledge and elevate your skills with our curated selection of courses.
+          Skill Bridge is your gateway to seamless learning and skill development. Manage courses, track progress, and engage effortlessly—all in one powerful platform. Start your learning journey today and bridge the gap to success!🚀
         </p>
 
         <form onSubmit={searchHandler} className="flex items-center bg-white rounded-md shadow-md overflow-hidden max-w-xl mx-auto mb-6">
