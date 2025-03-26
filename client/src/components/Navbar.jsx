@@ -57,6 +57,21 @@ const Navbar = () => {
         </div>
         {/* User icons and dark mode icon  */}
         <div className="flex items-center gap-8">
+          <Link to="/updates">
+            <h1 className="hidden md:block">
+              Updates
+            </h1>
+          </Link>
+          <Link to="/about">
+            <h1 className="hidden md:block">
+              About
+            </h1>
+          </Link>
+          <Link to="/contact">
+            <h1 className="hidden md:block">
+              Contact
+            </h1>
+          </Link>
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

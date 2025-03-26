@@ -23,6 +23,10 @@ import {
 } from "./components/ProtectedRoutes";
 import PurchaseCourseProtectedRoute from "./components/PurchaseCourseProtectedRoute";
 import { ThemeProvider } from "./components/ThemeProvider";
+import Footer from "./pages/student/Footer";
+import About from "./pages/student/About";
+import Contact from "./pages/student/Contact";
+import AboutUs from "./pages/student/AboutUs";
 
 const appRouter = createBrowserRouter([
   {
@@ -35,6 +39,31 @@ const appRouter = createBrowserRouter([
           <>
             <HeroSection />
             <Courses />
+            <Footer />
+          </>
+        ),
+      },
+      {
+        path: "/updates",
+        element: (
+          <>
+            <About />
+          </>
+        ),
+      },
+      {
+        path: "/about",
+        element: (
+          <>
+            <AboutUs />
+          </>
+        ),
+      },
+      {
+        path: "/contact",
+        element: (
+          <>
+            <Contact />
           </>
         ),
       },
@@ -83,7 +112,7 @@ const appRouter = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <PurchaseCourseProtectedRoute>
-            <CourseProgress />
+              <CourseProgress />
             </PurchaseCourseProtectedRoute>
           </ProtectedRoute>
         ),
@@ -132,7 +161,7 @@ function App() {
   return (
     <main>
       <ThemeProvider>
-      <RouterProvider router={appRouter} />
+        <RouterProvider router={appRouter} />
       </ThemeProvider>
     </main>
   );
