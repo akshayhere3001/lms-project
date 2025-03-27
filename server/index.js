@@ -8,14 +8,16 @@ import courseRoute from "./routes/course.route.js";
 import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
+import path from "path";
 
 dotenv.config({});
+const __dirname = path.resolve();
 
 // call database connection here
 connectDB();
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // default middleware
 app.use(express.json());
@@ -34,10 +36,10 @@ app.use("/api/v1/purchase", purchaseRoute);
 app.use("/api/v1/progress", courseProgressRoute);
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, "../frontend/dist")))
+    app.use(express.static(path.join(__dirname, "../client/dist")))
 
     app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"))
+        res.sendFile(path.join(__dirname, "../client", "dist", "index.html"))
     })
 }
  
