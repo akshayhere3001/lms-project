@@ -38,7 +38,8 @@ const LectureTab = () => {
       setIsFree(lecture.isPreviewFree);
       setUploadVideoInfo(lecture.videoInfo)
     }
-  }, [lecture])
+  }, [])
+
 
   const [edtiLecture, { data, isLoading, error, isSuccess }] =
     useEditLectureMutation();
@@ -46,37 +47,41 @@ const LectureTab = () => {
 
   const fileChangeHandler = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const formData = new FormData();
-      formData.append("file", file);
-      setMediaProgress(true);
-      try {
-        const res = await axios.post(`${MEDIA_API}/upload-video`, formData, {
-          onUploadProgress: ({ loaded, total }) => {
-            setUploadProgress(Math.round((loaded * 100) / total));
-          },
-        });
+    if (!file) return;
 
-        if (res.data.success) {
-          console.log(res);
-          setUploadVideoInfo({
-            videoUrl: res.data.data.url,
-            publicId: res.data.data.public_id,
-          });
-          setBtnDisable(false);
-          toast.success(res.data.message);
-        }
-      } catch (error) {
-        console.log(error);
-        toast.error("video upload failed");
-      } finally {
-        setMediaProgress(false);
+    const formData = new FormData();
+    formData.append("file", file);
+    setMediaProgress(true);
+    setBtnDisable(true); // Disable update button while uploading
+
+    try {
+      const res = await axios.post(`${MEDIA_API}/upload-video`, formData, {
+        onUploadProgress: ({ loaded, total }) => {
+          setUploadProgress(Math.round((loaded * 100) / total));
+        },
+      });
+
+      if (res.data.success) {
+        const newVideoInfo = {
+          videoUrl: res.data.data.url,
+          publicId: res.data.data.public_id,
+        };
+        setUploadVideoInfo(newVideoInfo);
+        toast.success(res.data.message);
       }
+    } catch (error) {
+      toast.error("Video upload failed");
+    } finally {
+      setMediaProgress(false);
+      setBtnDisable(false); // Enable the button after upload is complete
     }
   };
 
   const editLectureHandler = async () => {
-    console.log({ lectureTitle, uploadVideInfo, isFree, courseId, lectureId });
+    if (!uploadVideInfo || !uploadVideInfo.videoUrl) {
+      toast.error("Please wait for the video to finish uploading.");
+      return;
+    }
 
     await edtiLecture({
       lectureTitle,
@@ -161,15 +166,17 @@ const LectureTab = () => {
         )}
 
         <div className="mt-4">
-          <Button disabled={isLoading} onClick={editLectureHandler}>
-            {
-              isLoading ? <>
+          <Button disabled={btnDisable || isLoading} onClick={editLectureHandler}>
+            {isLoading ? (
+              <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Please wait
-              </> : "Update Lecture"
-            }
-
+              </>
+            ) : (
+              "Update Lecture"
+            )}
           </Button>
+
         </div>
       </CardContent>
     </Card>

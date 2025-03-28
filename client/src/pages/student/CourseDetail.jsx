@@ -85,8 +85,8 @@ const CourseDetail = () => {
               <div className="w-full aspect-video mb-4">
                 <ReactPlayer
                   width="100%"
-                  height={"100%"}
-                  url={course.courseThumbnail}
+                  height="100%"
+                  url={course.lectures.length > 0 ? course.lectures[0].videoUrl : ""}
                   controls={true}
                 />
               </div>
