@@ -10,42 +10,41 @@ import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
 import path from "path";
 
-dotenv.config({});
-const __dirname = path.resolve();
-
-// call database connection here
-connectDB();
+dotenv.config();
 const app = express();
-
 const PORT = process.env.PORT || 8080;
 
-// default middleware
+// Connect to MongoDB
+connectDB();
+
+// Default Middleware
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    credentials: true,
+  })
+);
 
-app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}));
- 
-// apis
+// API Routes
 app.use("/api/v1/media", mediaRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/purchase", purchaseRoute);
 app.use("/api/v1/progress", courseProgressRoute);
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, "../client/dist")))
+// Serve React Frontend
+const __dirname = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/dist")));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../client", "dist", "index.html"))
-    })
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  });
 }
- 
- 
+
+// Start Server
 app.listen(PORT, () => {
-    console.log(`Server listen at port ${PORT}`);
-})
-
-
+  console.log(`Server running on port ${PORT}`);
+});

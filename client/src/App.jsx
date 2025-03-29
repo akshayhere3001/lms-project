@@ -27,6 +27,7 @@ import Footer from "./pages/student/Footer";
 import About from "./pages/student/About";
 import Contact from "./pages/student/Contact";
 import AboutUs from "./pages/student/AboutUs";
+import HomeContent from "./pages/student/HomeContent";
 
 const appRouter = createBrowserRouter([
   {
@@ -39,6 +40,7 @@ const appRouter = createBrowserRouter([
           <>
             <HeroSection />
             <Courses />
+            <HomeContent />
             <Footer />
           </>
         ),
