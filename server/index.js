@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://skill-bridge-nz7e.onrender.com",
     credentials: true,
   })
 );
