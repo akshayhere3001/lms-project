@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "/",
-  "proxy": "https://skill-bridge-server-5gx3.onrender.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
