@@ -17,7 +17,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 
-const MEDIA_API = import.meta.env.MODE === "development" ? "http://localhost:8080/api/v1/media" : "/api/v1/media"
+const MEDIA_API = import.meta.env.MODE === "development" ? "http://localhost:8080/api/v1/media" : "https://skill-bridge-server-5gx3.onrender.com/api/v1/media"
 
 const LectureTab = () => {
   const [lectureTitle, setLectureTitle] = useState("");
