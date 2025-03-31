@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://skill-bridge-nz7e.onrender.com",
+    origin: `${process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : "https://skill-bridge-nz7e.onrender.com"}`,
     credentials: true,
   })
 );
