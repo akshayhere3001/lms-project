@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {
+    const navigate = useNavigate();
     return (
         <section className="py-24 relative bg-white dark:bg-gray-900">
             <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">

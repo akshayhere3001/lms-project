@@ -1,0 +1,86 @@
+export const quizData = {
+    HTML: [
+        { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlink and Text Markup Language", "Home Tool Markup Language"], answer: 0 },
+        { question: "Which tag is used to create a hyperlink in HTML?", options: ["<link>", "<a>", "<href>", "<hlink>"], answer: 1 },
+        { question: "What is the correct HTML element for inserting a line break?", options: ["<br>", "<break>", "<lb>", "<newline>"], answer: 0 },
+        { question: "Which HTML tag is used to define an unordered list?", options: ["<ul>", "<ol>", "<list>", "<unordered>"], answer: 0 },
+        { question: "What is the correct way to define a paragraph in HTML?", options: ["<p>", "<para>", "<paragraph>", "<pgraph>"], answer: 0 },
+        { question: "Which tag is used for inserting an image in HTML?", options: ["<img>", "<picture>", "<image>", "<src>"], answer: 0 },
+        { question: "What is the correct HTML for adding a background color?", options: ["<body style='background-color:yellow;'>", "<background>yellow</background>", "<body bg='yellow'>", "<bgcolor>yellow</bgcolor>"], answer: 0 },
+        { question: "Which doctype is correct for HTML5?", options: ["<!DOCTYPE html>", "<!DOCTYPE HTML5>", "<!DOCTYPE html PUBLIC 'HTML5'>", "<!DOCTYPE HTML SYSTEM 'HTML5'>"], answer: 0 },
+        { question: "Which tag is used to define a table in HTML?", options: ["<table>", "<tbl>", "<td>", "<tr>"], answer: 0 },
+        { question: "Which attribute is used to specify that an input field must be filled out?", options: ["required", "validate", "mandatory", "needed"], answer: 0 }
+    ],
+    CSS: [
+        { question: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"], answer: 1 },
+        { question: "Which property is used to change text color in CSS?", options: ["color", "text-color", "font-color", "fgcolor"], answer: 0 },
+        { question: "Which CSS property controls the text size?", options: ["text-size", "font-size", "size", "font-style"], answer: 1 },
+        { question: "What is the default position value in CSS?", options: ["static", "relative", "absolute", "fixed"], answer: 0 },
+        { question: "Which CSS property is used to set background color?", options: ["background-color", "bgcolor", "color", "background"], answer: 0 },
+        { question: "Which property is used to add space inside an element?", options: ["margin", "padding", "spacing", "border-spacing"], answer: 1 },
+        { question: "What does 'vh' stand for in CSS units?", options: ["Viewport Height", "Vertical Height", "View Height", "Visible Height"], answer: 0 },
+        { question: "Which CSS property is used to make text bold?", options: ["font-weight", "text-bold", "bold", "font-bolder"], answer: 0 },
+        { question: "Which of the following is a valid CSS comment?", options: ["/* This is a comment */", "// This is a comment", "<!-- This is a comment -->", "** This is a comment **"], answer: 0 },
+        { question: "Which CSS property is used to set the width of an element?", options: ["width", "size", "length", "element-width"], answer: 0 }
+    ],
+    JavaScript: [
+        { question: "Which keyword is used to declare a variable in JavaScript?", options: ["var", "let", "const", "All of the above"], answer: 3 },
+        { question: "Which symbol is used for single-line comments in JavaScript?", options: ["//", "/*", "--", "##"], answer: 0 },
+        { question: "How do you declare a function in JavaScript?", options: ["function myFunction() {}", "def myFunction() {}", "fun myFunction() {}", "declare myFunction() {}"], answer: 0 },
+        { question: "Which operator is used for strict equality?", options: ["==", "=", "===", "!="], answer: 2 },
+        { question: "How do you create an array in JavaScript?", options: ["var arr = []", "var arr = {}", "var arr = ()", "var arr = <>"], answer: 0 },
+        { question: "Which method is used to remove the last element of an array?", options: ["pop()", "push()", "shift()", "splice()"], answer: 0 },
+        { question: "How do you convert a string to an integer in JavaScript?", options: ["parseInt()", "StringToInt()", "int()", "convertToInt()"], answer: 0 },
+        { question: "What is the result of '2' + 2 in JavaScript?", options: ["22", "4", "TypeError", "undefined"], answer: 0 },
+        { question: "Which method is used to convert JSON to an object?", options: ["JSON.parse()", "JSON.stringify()", "JSON.toObject()", "JSON.convert()"], answer: 0 },
+        { question: "Which function is used to execute a function after a specified time?", options: ["setTimeout()", "setInterval()", "executeLater()", "wait()"], answer: 0 }
+    ],
+    React: [
+        { question: "What is React?", options: ["A JavaScript library for building user interfaces", "A framework for backend development", "A CSS preprocessor", "A database management system"], answer: 0 },
+        { question: "What is JSX in React?", options: ["A JavaScript syntax extension", "A database query language", "A styling framework", "A state management tool"], answer: 0 },
+        { question: "What is the use of useState in React?", options: ["To declare state in functional components", "To create class components", "To define routes", "To manage CSS styles"], answer: 0 },
+        { question: "Which method is used to pass data to child components?", options: ["Props", "State", "Hooks", "Redux"], answer: 0 },
+        { question: "What is the virtual DOM in React?", options: ["A lightweight copy of the real DOM", "A database management system", "A function for handling events", "A CSS styling technique"], answer: 0 },
+        { question: "What is the purpose of useEffect in React?", options: ["To perform side effects in function components", "To manage global state", "To create context", "To optimize performance"], answer: 0 },
+        { question: "How do you handle events in React?", options: ["Using event handlers like onClick", "By modifying the DOM directly", "Using jQuery", "With Redux"], answer: 0 },
+        { question: "What is React Router used for?", options: ["To handle navigation in a React application", "To style components", "To manage state", "To connect to APIs"], answer: 0 },
+        { question: "What is the purpose of React.Fragment?", options: ["To group multiple elements without adding extra nodes", "To create a new component", "To manage global state", "To fetch data"], answer: 0 },
+        { question: "Which hook is used for managing global state in React?", options: ["useContext", "useEffect", "useReducer", "useState"], answer: 0 }
+      ],
+      MongoDB: [
+        { question: "What type of database is MongoDB?", options: ["Relational", "Document-based NoSQL", "Graph", "Key-Value Store"], answer: 1 },
+        { question: "Which query language does MongoDB use?", options: ["SQL", "GraphQL", "MQL", "NoSQL"], answer: 2 },
+        { question: "What is a collection in MongoDB?", options: ["A set of tables", "A group of documents", "A database instance", "A SQL table"], answer: 1 },
+        { question: "Which command is used to insert a document in MongoDB?", options: ["INSERT INTO", "db.collection.insertOne()", "db.collection.add()", "INSERT"], answer: 1 },
+        { question: "What is the primary key in MongoDB by default?", options: ["id", "_id", "primaryKey", "docId"], answer: 1 },
+        { question: "Which of the following is a feature of MongoDB?", options: ["ACID Transactions", "Schema-less Structure", "Strict Table Relations", "XML Storage"], answer: 1 },
+        { question: "Which indexing type does MongoDB support?", options: ["B-Tree", "Binary Index", "Hash Index", "Indexing is not supported"], answer: 0 },
+        { question: "What is the purpose of the find() method in MongoDB?", options: ["To retrieve documents", "To create a new document", "To delete a document", "To modify a schema"], answer: 0 },
+        { question: "Which operator is used for searching in MongoDB?", options: ["$match", "$search", "$find", "$query"], answer: 1 },
+        { question: "What does the aggregation framework do in MongoDB?", options: ["Performs complex data transformations", "Joins tables", "Manages transactions", "Handles authentication"], answer: 0 }
+      ],
+      NodeJS: [
+        { question: "What is Node.js?", options: ["A JavaScript runtime built on Chrome's V8 engine", "A front-end framework", "A relational database", "A CSS library"], answer: 0 },
+        { question: "Which module is used to create a web server in Node.js?", options: ["fs", "http", "url", "path"], answer: 1 },
+        { question: "What does npm stand for?", options: ["Node Project Manager", "Node Package Manager", "Network Protocol Module", "New Programming Method"], answer: 1 },
+        { question: "Which command is used to initialize a Node.js project?", options: ["node init", "npm start", "npm init", "node install"], answer: 2 },
+        { question: "Which method is used to read a file in Node.js?", options: ["readFileSync", "fs.readFile", "fileRead", "readSync"], answer: 1 },
+        { question: "What is Express.js in Node.js?", options: ["A Node.js framework for building web applications", "A database management system", "A package manager", "A front-end framework"], answer: 0 },
+        { question: "How do you export a module in Node.js?", options: ["export default", "module.exports", "require", "import"], answer: 1 },
+        { question: "Which event-driven architecture does Node.js use?", options: ["Blocking", "Single-threaded, non-blocking", "Multi-threaded", "Parallel Processing"], answer: 1 },
+        { question: "Which built-in module is used to handle file paths in Node.js?", options: ["url", "fs", "path", "http"], answer: 2 },
+        { question: "How do you install a package globally in Node.js?", options: ["npm install <package>", "npm install -g <package>", "node install <package>", "npm global <package>"], answer: 1 }
+      ],
+      NextJS: [
+        { question: "What is Next.js?", options: ["A React framework for production", "A Node.js module", "A CSS preprocessor", "A JavaScript library"], answer: 0 },
+        { question: "What is the default routing mechanism in Next.js?", options: ["File-based routing", "React Router", "Express Router", "Dynamic Routing"], answer: 0 },
+        { question: "Which function is used for server-side rendering in Next.js?", options: ["getServerSideProps", "getStaticProps", "useEffect", "fetchData"], answer: 0 },
+        { question: "Which function is used for static site generation in Next.js?", options: ["getStaticProps", "getServerSideProps", "useState", "renderStatic"], answer: 0 },
+        { question: "How do you create a dynamic route in Next.js?", options: ["Using square brackets in file names", "Using query parameters", "Using React Router", "Using useState"], answer: 0 },
+        { question: "What is ISR (Incremental Static Regeneration) in Next.js?", options: ["A method to update static pages without rebuilding the entire site", "A caching strategy", "A middleware function", "A state management library"], answer: 0 },
+        { question: "Which folder is used to store API routes in Next.js?", options: ["/api", "/routes", "/server", "/backend"], answer: 0 },
+        { question: "What command is used to start a Next.js development server?", options: ["next dev", "next start", "npm start", "node server.js"], answer: 0 },
+        { question: "Which hook is commonly used for client-side data fetching in Next.js?", options: ["useSWR", "useEffect", "fetchAPI", "getStaticProps"], answer: 0 },
+        { question: "How do you define environment variables in Next.js?", options: ["Using a .env.local file", "Hardcoding in the component", "Using window.env", "Using process.config"], answer: 0 }
+      ],
+};

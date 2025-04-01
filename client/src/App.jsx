@@ -28,6 +28,7 @@ import About from "./pages/student/About";
 import Contact from "./pages/student/Contact";
 import AboutUs from "./pages/student/AboutUs";
 import HomeContent from "./pages/student/HomeContent";
+import Quiz from "./pages/student/Quiz";
 
 const appRouter = createBrowserRouter([
   {
@@ -42,6 +43,14 @@ const appRouter = createBrowserRouter([
             <Courses />
             <HomeContent />
             <Footer />
+          </>
+        ),
+      },
+      {
+        path: "/quizzes",
+        element: (
+          <>
+            <Quiz />
           </>
         ),
       },

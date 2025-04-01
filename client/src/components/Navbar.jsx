@@ -57,6 +57,11 @@ const Navbar = () => {
         </div>
         {/* User icons and dark mode icon  */}
         <div className="flex items-center gap-8">
+          <Link to="/quizzes">
+            <h1 className="hidden md:block">
+              Solve Quiz
+            </h1>
+          </Link>
           <Link to="/updates">
             <h1 className="hidden md:block">
               Updates
