@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import bgImg from "../../assets/bg-img.avif"; // Ensure the correct import
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,22 +11,28 @@ const HeroSection = () => {
   const searchHandler = (e) => {
     e.preventDefault();
     if (searchQuery.trim() !== "") {
-      navigate(`/course/search?query=${searchQuery}`); // Corrected navigation path
+      navigate(`/course/search?query=${searchQuery}`);
     }
     setSearchQuery("");
   };
 
   return (
-    <div className="relative bg-gradient-to-r from-yellow-200 to-orange-300 py-24 px-4 text-center">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-orange-800 text-4xl font-bold mb-4">
+    <div
+      className="relative py-24 px-4 text-center bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
+      <div className="max-w-3xl mx-auto  p-8">
+        <h1 className="text-white text-4xl font-bold mb-4">
           📚 Empower Learning with Ease – Your Ultimate LMS Solution!
         </h1>
-        <p className="text-gray-600 mb-8">
+        <p className="text-gray-100 mb-8">
           Skill Bridge is your gateway to seamless learning and skill development. Manage courses, track progress, and engage effortlessly—all in one powerful platform. Start your learning journey today and bridge the gap to success!🚀
         </p>
 
-        <form onSubmit={searchHandler} className="flex items-center bg-white rounded-md shadow-md overflow-hidden max-w-xl mx-auto mb-6">
+        <form
+          onSubmit={searchHandler}
+          className="flex items-center bg-white rounded-md shadow-md overflow-hidden max-w-xl mx-auto mb-6"
+        >
           <Input
             type="text"
             value={searchQuery}
@@ -41,7 +48,7 @@ const HeroSection = () => {
           </Button>
         </form>
         <Button
-          onClick={() => navigate(`/course/search?query=`)} // Corrected navigation path
+          onClick={() => navigate(`/course/search?query=`)}
           className="bg-white text-orange-500 rounded-md hover:bg-gray-100 transition-colors duration-300"
         >
           Explore All Courses

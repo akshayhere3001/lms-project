@@ -19,8 +19,8 @@ const Quiz = () => {
     }, 0);
 
     return (
-        <div className="flex min-h-screen bg-gray-100">
-            <aside className="w-1/4 bg-white p-4 shadow-lg h-screen sticky top-0">
+        <div className="flex min-h-screen bg-gray-100 dark:bg-[#020817]">
+            <aside className="w-1/4 bg-white dark:bg-[#020817] p-4 shadow-lg h-screen sticky top-0">
                 <h2 className="text-xl font-bold">Select Language</h2>
                 <ul className="mt-6">
                     {Object.keys(quizData).map((lang) => (
@@ -42,7 +42,7 @@ const Quiz = () => {
             <main className="w-3/4 p-6 overflow-y-auto">
                 <h2 className="text-2xl font-bold mb-4">{selectedLanguage} Quiz</h2>
                 {quizData[selectedLanguage]?.map((q, index) => (
-                    <div key={index} className="mb-4 p-4 bg-white shadow-md rounded-md">
+                    <div key={index} className="mb-4 p-4 bg-white dark:text-black dark:bg-gray-200 shadow-md rounded-md">
                         <p className="font-semibold">{q.question}</p>
                         <div className="mt-2">
                             {q.options.map((opt, optIndex) => (

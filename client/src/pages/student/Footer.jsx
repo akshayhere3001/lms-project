@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <footer className="bg-[#020817]">
-            <hr className='mt-6 md:mt-14' />
+            <hr className='mt-6 md:mt-0' />
             <div className="max-w-screen-xl px-4 pt-16 pb-6 mx-auto sm:px-6 lg:px-8 lg:pt-24">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div>
@@ -25,7 +25,7 @@ const Footer = () => {
                         <ul className="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
                             <li>
                                 <a
-                                    href="/"
+                                    href="https://www.facebook.com"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                     className="text-blue-600 transition hover:text-blue-600/75"
@@ -48,7 +48,7 @@ const Footer = () => {
 
                             <li>
                                 <a
-                                    href="/"
+                                    href="https://www.instagram.com"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                     className="text-blue-600 transition hover:text-blue-600/75"
@@ -71,7 +71,7 @@ const Footer = () => {
 
                             <li>
                                 <a
-                                    href="/"
+                                    href="https://www.twitter.com"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                     className="text-blue-600 transition hover:text-blue-600/75"
@@ -92,7 +92,7 @@ const Footer = () => {
 
                             <li>
                                 <a
-                                    href="/"
+                                    href="https://www.github.com"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                     className="text-blue-600 transition hover:text-blue-600/75"
@@ -115,7 +115,7 @@ const Footer = () => {
 
                             <li>
                                 <a
-                                    href="/"
+                                    href="https://dribbble.com"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                     className="text-blue-600 transition hover:text-blue-600/75"
@@ -356,7 +356,7 @@ const Footer = () => {
                         </p>
 
                         <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-                            &copy; 2022 Skill Bridge
+                            &copy; 2025 Skill Bridge
                         </p>
                     </div>
                 </div>
