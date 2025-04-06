@@ -30,6 +30,8 @@ import AboutUs from "./pages/student/AboutUs";
 import HomeContent from "./pages/student/HomeContent";
 import Quiz from "./pages/student/Quiz";
 import Cta from "./pages/student/Cta";
+import AddQuiz from "./pages/admin/quiz/AddQuiz";
+import OurInstructor from "./pages/student/OurInstructor";
 
 const appRouter = createBrowserRouter([
   {
@@ -42,6 +44,7 @@ const appRouter = createBrowserRouter([
           <>
             <HeroSection />
             <Courses />
+            <OurInstructor />
             <HomeContent />
             <Cta />
             <Footer />
@@ -163,6 +166,10 @@ const appRouter = createBrowserRouter([
           {
             path: "course/:courseId/lecture/:lectureId",
             element: <EditLecture />,
+          },
+          {
+            path: "quiz",
+            element: <AddQuiz />
           },
         ],
       },

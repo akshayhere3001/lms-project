@@ -1,80 +1,95 @@
+import { useGetAllQuizQuery } from "@/features/api/quizApi.js";
 import { useState } from "react";
-import { quizData } from "./quizData";
+import { Button } from "@/components/ui/button";
 
 const Quiz = () => {
-    const [selectedLanguage, setSelectedLanguage] = useState("HTML");
-    const [userAnswers, setUserAnswers] = useState({});
-    const [showResults, setShowResults] = useState(false);
+    const { data, isLoading, isError } = useGetAllQuizQuery();
+    const [answers, setAnswers] = useState({});
+    const [submitted, setSubmitted] = useState(false);
+    const [score, setScore] = useState(0);
 
-    const handleOptionChange = (questionIndex, optionIndex) => {
-        setUserAnswers({ ...userAnswers, [questionIndex]: optionIndex });
+    if (isLoading) return <h1 className="text-center mt-10 text-lg">Loading Quizzes...</h1>;
+    if (isError) return <h1 className="text-center mt-10 text-lg text-red-500">Some error occurred while fetching quizzes</h1>;
+
+    const quizzes = data?.data || [];
+
+    const handleOptionChange = (questionId, optionIndex) => {
+        setAnswers(prev => ({
+            ...prev,
+            [questionId]: optionIndex,
+        }));
     };
 
     const handleSubmit = () => {
-        setShowResults(true);
+        let score = 0;
+        quizzes.forEach(quiz => {
+            quiz.questions.forEach(question => {
+                const selected = answers[question._id];
+                if (selected === question.correctOptionIndex) {
+                    score += 1;
+                }
+            });
+        });
+        setScore(score);
+        setSubmitted(true);
     };
 
-    const score = quizData[selectedLanguage]?.reduce((acc, q, index) => {
-        return acc + (userAnswers[index] === q.answer ? 1 : 0);
-    }, 0);
-
     return (
-        <div className="flex min-h-screen bg-gray-100 dark:bg-[#020817]">
-            <aside className="w-1/4 bg-white dark:bg-[#020817] p-4 shadow-lg h-screen sticky top-0">
-                <h2 className="text-xl font-bold">Select Language</h2>
-                <ul className="mt-6">
-                    {Object.keys(quizData).map((lang) => (
-                        <li
-                            key={lang}
-                            className={`p-2 rounded-lg cursor-pointer ${selectedLanguage === lang ? "bg-gray-200 text-black" : ""}`}
-                            onClick={() => {
-                                setSelectedLanguage(lang);
-                                setUserAnswers({});
-                                setShowResults(false);
-                            }}
-                        >
-                            {lang}
-                        </li>
-                    ))}
-                </ul>
-            </aside>
+        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-[#020817] p-4">
+            <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">
+                Explore Quizzes. Expand Knowledge. 📚
+            </h1>
+            <p className="text-center text-gray-600 dark:text-gray-300 mb-6">
+                Test your understanding with interactive quizzes tailored just for you
+            </p>
 
-            <main className="w-3/4 p-6 overflow-y-auto">
-                <h2 className="text-2xl font-bold mb-4">{selectedLanguage} Quiz</h2>
-                {quizData[selectedLanguage]?.map((q, index) => (
-                    <div key={index} className="mb-4 p-4 bg-white dark:text-black dark:bg-gray-200 shadow-md rounded-md">
-                        <p className="font-semibold">{q.question}</p>
-                        <div className="mt-2">
-                            {q.options.map((opt, optIndex) => (
-                                <label key={optIndex} className="block">
-                                    <input
-                                        type="radio"
-                                        name={`question-${index}`}
-                                        value={optIndex}
-                                        checked={userAnswers[index] === optIndex}
-                                        onChange={() => handleOptionChange(index, optIndex)}
-                                        className="mr-2"
-                                    />
-                                    {opt}
-                                </label>
-                            ))}
-                        </div>
+            <div className="w-full lg:w-2/3 mx-auto space-y-8">
+                {quizzes.map(quiz => (
+                    <div key={quiz._id} className="w-full bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        {quiz.questions.map((question, qIdx) => (
+                            <div key={question._id} className="mb-6">
+                                <p className="font-medium mb-2 text-gray-800 dark:text-gray-200">
+                                    ▶ {question.questionText}
+                                </p>
+                                <div className="space-y-2">
+                                    {question.options.map((option, index) => (
+                                        <label
+                                            key={index}
+                                            className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                                        >
+                                            <input
+                                                type="radio"
+                                                name={question._id}
+                                                value={index}
+                                                checked={answers[question._id] === index}
+                                                onChange={() => handleOptionChange(question._id, index)}
+                                                className="accent-blue-500"
+                                            />
+                                            {option}
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 ))}
 
-                <button
-                    onClick={handleSubmit}
-                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                >
-                    Submit
-                </button>
-
-                {showResults && (
-                    <p className="mt-4 text-xl font-bold">Your Score: {score}/{quizData[selectedLanguage]?.length}</p>
+                {!submitted ? (
+                    <div className={`text-center ${data.data.length === 0 ? 'hidden' : ''}`}>
+                        <Button onClick={handleSubmit} className="mt-4 px-6 py-2">
+                            Submit Quiz
+                        </Button>
+                    </div>
+                ) : (
+                    <div className="text-center mt-6">
+                        <h2 className="text-2xl font-bold text-green-600 dark:text-green-400">
+                            You scored {score} out of {quizzes.reduce((acc, q) => acc + q.questions.length, 0)}
+                        </h2>
+                    </div>
                 )}
-            </main>
+            </div>
         </div>
     );
-}
+};
 
 export default Quiz;
